@@ -14,7 +14,7 @@ import { toast } from "@/hooks/use-toast";
 import { WhopCheckoutEmbed } from "@whop/checkout/react";
 import { NewCustomerForm } from "@/components/checkout/NewCustomerForm";
 import { RenewalForm } from "@/components/checkout/RenewalForm";
-import { GOOGLE_SHEETS_WEBHOOK_URL } from "@/config/googleSheets";
+import { supabase } from "@/integrations/supabase/client";
 
 const Checkout = () => {
   const [searchParams] = useSearchParams();
@@ -90,18 +90,7 @@ const Checkout = () => {
       return;
     }
 
-    // Validation supplémentaire côté client
-    if (!GOOGLE_SHEETS_WEBHOOK_URL || GOOGLE_SHEETS_WEBHOOK_URL.includes("YOUR_")) {
-      toast({
-        title: "Erreur de configuration",
-        description: "Le système d'enregistrement n'est pas configuré correctement.",
-        variant: "destructive",
-      });
-      setIsProcessing(false);
-      return;
-    }
-
-    // Send data to Google Sheets
+    // Send data to backend
     try {
       const payload = {
         customerType: "New Customer",
@@ -117,16 +106,12 @@ const Checkout = () => {
         price: price,
       };
 
-      const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+      const { data: result, error } = await supabase.functions.invoke('submit-order', {
+        body: payload,
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to save data to Google Sheets");
+      if (error) {
+        throw error;
       }
       
       toast({
@@ -163,18 +148,7 @@ const Checkout = () => {
       return;
     }
 
-    // Validation supplémentaire côté client
-    if (!GOOGLE_SHEETS_WEBHOOK_URL || GOOGLE_SHEETS_WEBHOOK_URL.includes("YOUR_")) {
-      toast({
-        title: "Erreur de configuration",
-        description: "Le système d'enregistrement n'est pas configuré correctement.",
-        variant: "destructive",
-      });
-      setIsProcessing(false);
-      return;
-    }
-
-    // Send data to Google Sheets
+    // Send data to backend
     try {
       const payload = {
         customerType: "Renewal",
@@ -184,16 +158,12 @@ const Checkout = () => {
         price: price,
       };
 
-      const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+      const { data: result, error } = await supabase.functions.invoke('submit-order', {
+        body: payload,
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to save renewal data to Google Sheets");
+      if (error) {
+        throw error;
       }
       
       toast({
