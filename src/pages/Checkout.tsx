@@ -83,8 +83,8 @@ const Checkout = () => {
 
     if (!planId) {
       toast({
-        title: "Plan manquant",
-        description: "Ajoutez ?planId=plan_XXXX dans l'URL ou configurez-le dans le code.",
+        title: "Plan Missing",
+        description: "Add ?planId=plan_XXXX to the URL or configure it in the code.",
       });
       setIsProcessing(false);
       return;
@@ -115,8 +115,8 @@ const Checkout = () => {
       }
       
       toast({
-        title: "Succès!",
-        description: "Vos informations ont été enregistrées. Redirection vers le paiement...",
+        title: "Success!",
+        description: "Your information has been saved. Redirecting to payment...",
       });
 
       // Attendre un peu avant d'ouvrir le checkout
@@ -124,8 +124,8 @@ const Checkout = () => {
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "Unknown error";
       toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite. Veuillez réessayer ou contacter le support.",
+        title: "Error",
+        description: "An error occurred. Please try again or contact support.",
         variant: "destructive",
       });
       setIsProcessing(false);
@@ -141,8 +141,8 @@ const Checkout = () => {
 
     if (!planId) {
       toast({
-        title: "Plan manquant",
-        description: "Ajoutez ?planId=plan_XXXX dans l'URL ou configurez-le dans le code.",
+        title: "Plan Missing",
+        description: "Add ?planId=plan_XXXX to the URL or configure it in the code.",
       });
       setIsProcessing(false);
       return;
@@ -167,8 +167,8 @@ const Checkout = () => {
       }
       
       toast({
-        title: "Succès!",
-        description: "Votre demande de renouvellement a été enregistrée. Redirection vers le paiement...",
+        title: "Success!",
+        description: "Your renewal request has been saved. Redirecting to payment...",
       });
 
       // Attendre un peu avant d'ouvrir le checkout
@@ -176,8 +176,8 @@ const Checkout = () => {
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "Unknown error";
       toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite. Veuillez réessayer ou contacter le support.",
+        title: "Error",
+        description: "An error occurred. Please try again or contact support.",
         variant: "destructive",
       });
       setIsProcessing(false);
