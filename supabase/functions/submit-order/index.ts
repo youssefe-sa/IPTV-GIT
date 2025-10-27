@@ -43,20 +43,12 @@ serve(async (req) => {
       throw new Error('Failed to save data to Google Sheets');
     }
 
-    // Google Sheets peut retourner du texte ou du HTML, pas forcément du JSON
-    const contentType = response.headers.get('content-type');
-    let result;
-    
-    if (contentType && contentType.includes('application/json')) {
-      result = await response.json();
-    } else {
-      result = await response.text();
-    }
-    
-    console.log('Successfully saved to Google Sheets:', result);
+    // Google Sheets renvoie souvent du HTML même en cas de succès
+    // On considère que si le statut est 200, les données sont sauvegardées
+    console.log('Successfully saved to Google Sheets with status:', response.status);
 
     return new Response(
-      JSON.stringify({ success: true, data: result }),
+      JSON.stringify({ success: true, message: 'Order submitted successfully' }),
       { 
         status: 200, 
         headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
