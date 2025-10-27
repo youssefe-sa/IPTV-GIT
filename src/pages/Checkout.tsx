@@ -11,9 +11,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { toast } from "@/hooks/use-toast";
-import { WhopCheckoutEmbed } from "@whop/checkout/react";
 import { NewCustomerForm } from "@/components/checkout/NewCustomerForm";
 import { RenewalForm } from "@/components/checkout/RenewalForm";
+import { SecureWhopCheckout } from "@/components/checkout/SecureWhopCheckout";
 import { supabase } from "@/integrations/supabase/client";
 
 const Checkout = () => {
@@ -328,7 +328,7 @@ const Checkout = () => {
           </DialogHeader>
           {planId ? (
             <div className="flex-1 min-h-0 overflow-y-auto px-6 pb-6">
-              <WhopCheckoutEmbed
+              <SecureWhopCheckout
                 planId={planId}
                 theme="system"
                 fallback={<>Loading checkout...</>}
