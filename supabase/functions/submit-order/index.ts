@@ -43,7 +43,16 @@ serve(async (req) => {
       throw new Error('Failed to save data to Google Sheets');
     }
 
-    const result = await response.json();
+    // Google Sheets peut retourner du texte ou du HTML, pas forcément du JSON
+    const contentType = response.headers.get('content-type');
+    let result;
+    
+    if (contentType && contentType.includes('application/json')) {
+      result = await response.json();
+    } else {
+      result = await response.text();
+    }
+    
     console.log('Successfully saved to Google Sheets:', result);
 
     return new Response(
