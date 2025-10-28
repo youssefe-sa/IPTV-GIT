@@ -1,12 +1,9 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const TermsConditions = () => {
   return (
     <div className="min-h-screen">
-      <Header />
       <main className="container mx-auto px-4 py-12 max-w-4xl">
         <Link to="/" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 transition-colors">
           <ArrowLeft className="h-4 w-4" />

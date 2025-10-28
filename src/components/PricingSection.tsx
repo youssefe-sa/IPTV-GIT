@@ -14,7 +14,7 @@ const PricingSection = () => {
     <section id="pricing" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Choose Your Plan – Best IPTV Service Providers
           </h2>
         </div>
@@ -34,7 +34,7 @@ const PricingSection = () => {
         {/* Comparison Section */}
         <div className="mt-20">
           <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
               Why Choose Connect Global IPTV?
             </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">

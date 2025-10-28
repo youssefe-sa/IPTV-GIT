@@ -61,7 +61,7 @@ const InstallationTutorial = () => {
     <section id="installation" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Effortlessly Set Up IPTV On Any Device
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -70,19 +70,20 @@ const InstallationTutorial = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="grid grid-cols-2 gap-3 mb-12 px-2">
             {devices.map((device, index) => (
-              <Button
-                key={device.id}
-                variant={selectedDevice === device.id ? "hero" : "outline"}
-                size="lg"
-                onClick={() => setSelectedDevice(device.id)}
-                className="animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <device.icon className="h-5 w-5" />
-                {device.name}
-              </Button>
+              <div key={device.id} className="h-full">
+                <Button
+                  variant={selectedDevice === device.id ? "hero" : "outline"}
+                  size="lg"
+                  onClick={() => setSelectedDevice(device.id)}
+                  className="animate-fade-in w-full h-full flex items-center justify-center sm:justify-start p-2 sm:px-4"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <device.icon className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm text-center sm:text-left">{device.name}</span>
+                </Button>
+              </div>
             ))}
           </div>
 

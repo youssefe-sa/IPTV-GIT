@@ -1,30 +1,7 @@
-import { MapPin, ArrowUp } from "lucide-react";
+import { MapPin } from "lucide-react";
 import globalCoverageBg from "@/assets/global-coverage-bg.jpg";
-import { useEffect, useState } from "react";
+
 const GlobalCoverage = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Afficher le bouton quand l'utilisateur descend la page
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
-
-  // Fonction pour remonter en haut de la page
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
   const regions = [{
     name: "America",
     color: "bg-primary",
@@ -78,10 +55,14 @@ const GlobalCoverage = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-            Channels From Every Corner Of The World
-          </h2>
-          <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed mx-[50px]">Our IPTV service offers an array of amazing features that make it stand out from the rest. With access to Live TV channels, including Adult/XXX channels (which can be selected during the ordering process), Live sports channels, Movies, Series, and VOD, there’s no shortage of entertainment options for our users. Plus, our 24/7 LIVE chat support ensures that any questions or concerns can be quickly addressed. Our subscription packages have been designed to provide users with exceptional value, making them an attractive choice for anyone looking to enjoy high-quality entertainment at an affordable price.</p>
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+              Channels From Every Corner Of The World
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-primary-foreground/90 mb-8 leading-relaxed">
+              Our IPTV service offers an array of amazing features that make it stand out from the rest. With access to Live TV channels, including Adult/XXX channels (which can be selected during the ordering process), Live sports channels, Movies, Series, and VOD, there's no shortage of entertainment options for our users. Plus, our 24/7 LIVE chat support ensures that any questions or concerns can be quickly addressed. Our subscription packages have been designed to provide users with exceptional value, making them an attractive choice for anyone looking to enjoy high-quality entertainment at an affordable price.
+            </p>
+          </div>
         </div>
 
         <div className="max-w-5xl mx-auto relative h-[400px] md:h-[500px] animate-fade-in-up">
@@ -125,16 +106,7 @@ const GlobalCoverage = () => {
       </div>
     </section>
 
-    {/* Bouton de retour en haut - Positionné à gauche du bouton WhatsApp */}
-    {isVisible && (
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-20 z-40 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 animate-bounce"
-        aria-label="Retour en haut"
-      >
-        <ArrowUp className="h-6 w-6" />
-      </button>
-    )}
+    {/* Le bouton de retour en haut est maintenant géré par le composant FloatingButtons */}
   </>
   );
 };

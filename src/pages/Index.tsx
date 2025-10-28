@@ -10,9 +10,9 @@ import InstallationTutorial from "@/components/InstallationTutorial";
 import PopularContent from "@/components/PopularContent";
 import FAQSection from "@/components/FAQSection";
 import FinalCTA from "@/components/FinalCTA";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SalesNotification from "@/components/SalesNotification";
 import Testimonials from "@/components/Testimonials";
+import FloatingButtons from "@/components/FloatingButtons";
 
 const Index = () => {
   useEffect(() => {
@@ -43,7 +43,7 @@ const Index = () => {
       <PopularContent />
       <FAQSection />
       <FinalCTA />
-      <FloatingWhatsApp />
+      <FloatingButtons />
     </div>
   );
 };
