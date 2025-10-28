@@ -29,25 +29,48 @@ const Checkout = () => {
   // Listen for Whop checkout completion events
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      // Valider l'origine du message pour la sécurité
+      console.log('Received postMessage:', {
+        origin: event.origin,
+        data: event.data,
+        type: typeof event.data
+      });
+
+      // Validate message origin for security
       if (!event.origin.includes("whop.com") && !event.origin.includes("whop")) {
+        console.log('Message ignored: origin not from Whop');
         return;
       }
       
-      // Check if message is from Whop checkout
-      if (event.data?.type === 'whop_checkout_completed' || 
-          event.data?.event === 'checkout_completed' ||
-          event.data === 'checkout_completed' ||
-          event.data === 'whop_checkout_completed') {
-        // Rediriger après un court délai pour s'assurer que tout est traité
+      // Check various Whop checkout completion event formats
+      const isCheckoutCompleted = 
+        event.data?.type === 'whop_checkout_completed' || 
+        event.data?.event === 'checkout_completed' ||
+        event.data?.status === 'completed' ||
+        event.data === 'checkout_completed' ||
+        event.data === 'whop_checkout_completed' ||
+        (typeof event.data === 'object' && event.data?.checkout?.status === 'completed');
+
+      if (isCheckoutCompleted) {
+        console.log('Checkout completed! Redirecting to thank-you page...');
+        toast({
+          title: "Payment Successful!",
+          description: "Redirecting to confirmation page...",
+        });
+        
+        // Redirect after a short delay to ensure everything is processed
         setTimeout(() => {
           navigate(`/thank-you?plan=${encodeURIComponent(plan)}`);
         }, 500);
       }
     };
 
+    console.log('Setting up Whop checkout message listener...');
     window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
+    
+    return () => {
+      console.log('Cleaning up Whop checkout message listener');
+      window.removeEventListener('message', handleMessage);
+    };
   }, [navigate, plan]);
 
   // Map prices to checkout URLs
