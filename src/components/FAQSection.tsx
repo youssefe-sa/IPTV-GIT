@@ -45,23 +45,48 @@ const FAQSection = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto animate-fade-in-up">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="bg-card rounded-lg px-6 border border-border shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="max-w-6xl mx-auto animate-fade-in-up">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Première colonne */}
+            <div className="space-y-4">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.slice(0, 3).map((faq, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`}
+                    className="bg-card rounded-lg px-6 border border-border shadow-sm"
+                  >
+                    <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+            
+            {/* Deuxième colonne */}
+            <div className="space-y-4">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.slice(3).map((faq, index) => (
+                  <AccordionItem 
+                    key={index + 3} 
+                    value={`item-${index + 3}`}
+                    className="bg-card rounded-lg px-6 border border-border shadow-sm"
+                  >
+                    <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import PricingCard from "./PricingCard";
+import ComparisonTable from "./ComparisonTable";
 
 const PricingSection = () => {
   const plans = [
@@ -28,6 +29,22 @@ const PricingSection = () => {
               delay={index * 0.1}
             />
           ))}
+        </div>
+        
+        {/* Comparison Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Why Choose Connect Global IPTV?
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Compare our service with other providers and see why we're the best choice for your streaming needs.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <ComparisonTable />
+          </div>
         </div>
       </div>
     </section>

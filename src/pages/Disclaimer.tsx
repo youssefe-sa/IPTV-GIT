@@ -237,7 +237,6 @@ const Disclaimer = () => {
           </section>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };

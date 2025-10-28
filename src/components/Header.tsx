@@ -1,18 +1,29 @@
 import { Globe, Menu, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
-      setIsMenuOpen(false);
+    // Si on est sur la page d'accueil, on fait le scroll
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    } else {
+      // Sinon, on redirige vers la page d'accueil avec le hash
+      navigate(`/#${sectionId}`);
     }
+    setIsMenuOpen(false);
   };
+
   return <header className="sticky top-0 z-50 bg-[hsl(217,91%,20%)] border-b border-primary/20 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">

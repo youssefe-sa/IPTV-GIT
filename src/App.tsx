@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -20,14 +21,42 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/thank-you" element={<ThankYou />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-conditions" element={<TermsConditions />} />
-          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/" element={
+            <Layout>
+              <Index />
+            </Layout>
+          } />
+          <Route path="/checkout" element={
+            <Layout>
+              <Checkout />
+            </Layout>
+          } />
+          <Route path="/thank-you" element={
+            <Layout>
+              <ThankYou />
+            </Layout>
+          } />
+          <Route path="/privacy-policy" element={
+            <Layout>
+              <PrivacyPolicy />
+            </Layout>
+          } />
+          <Route path="/terms-conditions" element={
+            <Layout>
+              <TermsConditions />
+            </Layout>
+          } />
+          <Route path="/disclaimer" element={
+            <Layout>
+              <Disclaimer />
+            </Layout>
+          } />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={
+            <Layout>
+              <NotFound />
+            </Layout>
+          } />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

@@ -23,7 +23,7 @@ const PricingCard = ({
   return <div className={`bg-card rounded-xl shadow-md hover:shadow-xl transition-all p-8 relative animate-scale-in ${isPopular ? "border-2 border-primary scale-105" : "border border-border"}`} style={{
     animationDelay: `${delay}s`
   }}>
-      {isPopular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground rounded-full text-sm font-semibold px-[25px] py-[5px]">Most</div>}
+      {isPopular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground rounded-full text-sm font-semibold px-4 py-[5px] whitespace-nowrap">Most Popular</div>}
 
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold text-foreground mb-2">{duration}</h3>

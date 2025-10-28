@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Shield, Lock, CreditCard, Check } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import {
   Dialog,
   DialogContent,
@@ -15,6 +13,7 @@ import { NewCustomerForm } from "@/components/checkout/NewCustomerForm";
 import { RenewalForm } from "@/components/checkout/RenewalForm";
 import { SecureWhopCheckout } from "@/components/checkout/SecureWhopCheckout";
 import { supabase } from "@/integrations/supabase/client";
+import Footer from "@/components/Footer";
 
 const Checkout = () => {
   const [searchParams] = useSearchParams();
@@ -213,11 +212,8 @@ const Checkout = () => {
 
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <Header />
-
-      <div className="container mx-auto px-4 py-12 flex-1">
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Billing Form */}
           <div className="lg:col-span-2">
@@ -336,9 +332,6 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <Footer />
 
       {/* Payment Checkout Dialog */}
       <Dialog open={isCheckoutOpen} onOpenChange={setIsCheckoutOpen}>

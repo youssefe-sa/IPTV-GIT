@@ -1,5 +1,30 @@
-import { MapPin } from "lucide-react";
+import { MapPin, ArrowUp } from "lucide-react";
+import globalCoverageBg from "@/assets/global-coverage-bg.jpg";
+import { useEffect, useState } from "react";
 const GlobalCoverage = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Afficher le bouton quand l'utilisateur descend la page
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  // Fonction pour remonter en haut de la page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   const regions = [{
     name: "America",
     color: "bg-primary",
@@ -26,20 +51,37 @@ const GlobalCoverage = () => {
     left: "80%",
     top: "65%"
   }];
-  return <section className="py-20 bg-muted relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-        backgroundSize: '40px 40px'
-      }} />
-      </div>
+  return (
+    <>
+    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[hsl(217,91%,20%)] to-[hsl(217,91%,30%)] bg-fixed">
+      {/* Image d'arrière-plan avec opacité */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-20" 
+        style={{
+          backgroundImage: `url(${globalCoverageBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }} 
+      />
+      
+      {/* Motif de points */}
+      <div 
+        className="absolute inset-0" 
+        style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)',
+          backgroundSize: '40px 40px',
+          opacity: 0.1,
+          color: 'hsl(0, 0%, 100%)'
+        }} 
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
             Channels From Every Corner Of The World
           </h2>
-          <h2 className="text-lg text-muted-foreground mb-8 leading-relaxed mx-[50px]">Our IPTV service offers an array of amazing features that make it stand out from the rest. With access to Live TV channels, including Adult/XXX channels (which can be selected during the ordering process), Live sports channels, Movies, Series, and VOD, there’s no shortage of entertainment options for our users. Plus, our 24/7 LIVE chat support ensures that any questions or concerns can be quickly addressed. Our subscription packages have been designed to provide users with exceptional value, making them an attractive choice for anyone looking to enjoy high-quality entertainment at an affordable price.</h2>
+          <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed mx-[50px]">Our IPTV service offers an array of amazing features that make it stand out from the rest. With access to Live TV channels, including Adult/XXX channels (which can be selected during the ordering process), Live sports channels, Movies, Series, and VOD, there’s no shortage of entertainment options for our users. Plus, our 24/7 LIVE chat support ensures that any questions or concerns can be quickly addressed. Our subscription packages have been designed to provide users with exceptional value, making them an attractive choice for anyone looking to enjoy high-quality entertainment at an affordable price.</p>
         </div>
 
         <div className="max-w-5xl mx-auto relative h-[400px] md:h-[500px] animate-fade-in-up">
@@ -64,7 +106,7 @@ const GlobalCoverage = () => {
                       <MapPin className="h-7 w-7 text-primary-foreground" />
                     </div>
                     <div className="absolute left-1/2 -translate-x-1/2 -top-12 bg-card px-4 py-2 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap border border-border">
-                      <span className="text-sm font-semibold text-card-foreground">{region.name}</span>
+                      <span className="text-sm font-semibold text-primary-foreground">{region.name}</span>
                     </div>
                   </div>
                 </div>)}
@@ -73,14 +115,27 @@ const GlobalCoverage = () => {
         </div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-6">
-          {regions.map((region, index) => <div key={index} className="flex items-center gap-3 animate-fade-in px-4 py-2 rounded-full bg-card border border-border/50 hover:border-primary/50 transition-all" style={{
+          {regions.map((region, index) => <div key={index} className="flex items-center gap-3 animate-fade-in px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:border-primary/50 transition-all" style={{
           animationDelay: `${index * 0.1}s`
         }}>
               <div className={`${region.color} w-3 h-3 rounded-full shadow-lg`} />
-              <span className="text-foreground font-medium text-sm">{region.name}</span>
+              <span className="text-white font-medium text-sm">{region.name}</span>
             </div>)}
         </div>
       </div>
-    </section>;
+    </section>
+
+    {/* Bouton de retour en haut - Positionné à gauche du bouton WhatsApp */}
+    {isVisible && (
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-20 z-40 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 animate-bounce"
+        aria-label="Retour en haut"
+      >
+        <ArrowUp className="h-6 w-6" />
+      </button>
+    )}
+  </>
+  );
 };
 export default GlobalCoverage;

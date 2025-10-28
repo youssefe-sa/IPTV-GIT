@@ -191,7 +191,6 @@ const TermsConditions = () => {
           </section>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };

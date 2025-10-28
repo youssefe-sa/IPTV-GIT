@@ -1,4 +1,5 @@
 import { Button } from "./ui/button";
+import readyToWatchBg from "@/assets/ready-to-watch-bg.jpg";
 
 const FinalCTA = () => {
   const scrollToPricing = () => {
@@ -9,13 +10,27 @@ const FinalCTA = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[hsl(217,91%,25%)] to-[hsl(217,91%,35%)] relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '30px 30px',
-        }} />
-      </div>
+    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[hsl(217,91%,20%)] to-[hsl(217,91%,30%)]">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-20" 
+        style={{ 
+          backgroundImage: `url(${readyToWatchBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }} 
+      />
+      
+      {/* Radial Gradient Overlay */}
+      <div 
+        className="absolute inset-0" 
+        style={{ 
+          backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', 
+          backgroundSize: '40px 40px', 
+          opacity: 0.1, 
+          color: 'hsl(0, 0%, 100%)' 
+        }} 
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center animate-fade-in-up">

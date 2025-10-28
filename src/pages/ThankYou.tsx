@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { CheckCircle, Mail, MessageSquare, Tv } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
 const ThankYou = () => {
@@ -17,7 +15,6 @@ const ThankYou = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Header />
 
       <main className="flex-1 container mx-auto px-4 py-12 md:py-20">
         <div className="max-w-3xl mx-auto">
@@ -152,8 +149,6 @@ const ThankYou = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };
