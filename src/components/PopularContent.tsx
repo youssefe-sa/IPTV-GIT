@@ -53,7 +53,7 @@ const PopularContent = () => {
   return <section className="py-16 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 animate-fade-in">
-          <h3 className="font-bold text-foreground mb-2 text-5xl">
+          <h3 className="font-bold text-foreground mb-2 text-2xl">
             Popular Content Available Now
           </h3>
           <p className="text-muted-foreground">
