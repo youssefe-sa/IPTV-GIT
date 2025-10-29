@@ -18,7 +18,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-8 sm:py-12 md:py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up px-2 sm:px-0">
           <h1 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4 md:mb-6 leading-tight md:text-6xl">
-            The International <span className="text-accent relative inline-block px-2 py-1 sm:px-3 bg-accent/20 rounded-lg border-2 border-accent/40 text-xl xs:text-2xl sm:text-3xl md:text-4xl mt-1 inline-block">IPTV</span> Service
+            The International <span className="text-accent relative inline-block px-2 py-1 sm:px-3 bg-accent/20 rounded-lg border-2 border-accent/40 text-xl xs:text-2xl sm:text-3xl mt-1 inline-block md:text-6xl">IPTV</span> Service
           </h1>
           <p className="text-lg xs:text-xl sm:text-2xl md:text-4xl text-accent mb-3 sm:mb-4 md:mb-6 font-bold leading-snug">
             Stream the World in One Click
