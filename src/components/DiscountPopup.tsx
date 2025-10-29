@@ -22,21 +22,31 @@ export function DiscountPopup() {
   }, []);
 
   const handleClose = () => {
+    if (isClosing) return; // Évite les fermetures multiples
+    
     setIsClosing(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsVisible(false);
       setIsClosing(false);
+      clearTimeout(timer);
     }, 300);
   };
 
-  if (!isVisible) return null;
+  if (!isVisible && !isClosing) return null;
 
   return (
     <div 
       className={`fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4 transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
       style={{
         background: 'rgba(0, 0, 0, 0.7)',
-        backdropFilter: 'blur(5px)'
+        backdropFilter: 'blur(5px)',
+        pointerEvents: isClosing ? 'none' : 'auto'
+      }}
+      onClick={(e) => {
+        // Fermer la popup si on clique en dehors du contenu
+        if (e.target === e.currentTarget) {
+          handleClose();
+        }
       }}
     >
       <div 
