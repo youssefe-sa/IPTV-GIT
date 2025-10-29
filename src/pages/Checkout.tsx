@@ -87,8 +87,8 @@ const Checkout = () => {
     "19.99": "plan_cWyyAd1ZmO7Oe",
     "39.99": "plan_gds8DWoABTvWK",
     "49.99": "plan_VNq1sYgYJlhX7",
-    "59.99": "plan_rcG2lwNKvbdSB",
-    "99.99": "plan_ESKN3ggSa6kOq",
+    "89.99": "plan_rcG2lwNKvbdSB",
+    "149.99": "plan_ESKN3ggSa6kOq",
   };
   const planId = planIdParam || planIdMap[price] || "";
 
