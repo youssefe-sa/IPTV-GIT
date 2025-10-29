@@ -20,7 +20,7 @@ const HeroSection = () => {
           <h1 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4 md:mb-6 leading-tight md:text-6xl">
             The International <span className="text-accent relative inline-block px-2 py-1 sm:px-3 bg-accent/20 rounded-lg border-2 border-accent/40 sm:text-3xl mt-1 inline-block md:text-6xl text-3xl">IPTV</span> Service
           </h1>
-          <p className="text-lg xs:text-xl sm:text-2xl text-accent mb-3 sm:mb-4 md:mb-6 font-bold leading-snug md:text-5xl">
+          <p className="sm:text-2xl text-accent mb-3 sm:mb-4 md:mb-6 font-bold leading-snug md:text-5xl text-xl">
             Stream the World in One Click
           </p>
           <p className="text-sm xs:text-base sm:text-lg text-primary-foreground/90 mb-4 sm:mb-6 md:mb-8 leading-relaxed px-1">
