@@ -15,11 +15,11 @@ const PricingSection = () => {
     isPopular: false
   }, {
     duration: "12 Months",
-    price: "59.99",
+    price: "89.99",
     isPopular: true
   }, {
     duration: "24 Months",
-    price: "99.99",
+    price: "149.99",
     isPopular: false
   }];
   return <section id="pricing" className="py-20 bg-muted">
