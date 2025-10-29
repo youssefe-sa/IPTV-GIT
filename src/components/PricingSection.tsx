@@ -40,9 +40,7 @@ const PricingSection = () => {
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 lg:text-5xl">
               Why Choose Connect Global IPTV?
             </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Compare our service with other providers and see why we're the best choice for your streaming needs.
-            </p>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Compare our service with other providers and see why we're the best choice for you</p>
           </div>
           
           <div className="max-w-4xl mx-auto">
