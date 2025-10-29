@@ -1,17 +1,28 @@
 import PricingCard from "./PricingCard";
 import ComparisonTable from "./ComparisonTable";
-
 const PricingSection = () => {
-  const plans = [
-    { duration: "1 Month", price: "19.99", isPopular: false },
-    { duration: "3 Months", price: "39.99", isPopular: false },
-    { duration: "6 Months", price: "49.99", isPopular: false },
-    { duration: "12 Months", price: "59.99", isPopular: true },
-    { duration: "24 Months", price: "99.99", isPopular: false },
-  ];
-
-  return (
-    <section id="pricing" className="py-20 bg-muted">
+  const plans = [{
+    duration: "1 Month",
+    price: "19.99",
+    isPopular: false
+  }, {
+    duration: "3 Months",
+    price: "39.99",
+    isPopular: false
+  }, {
+    duration: "6 Months",
+    price: "49.99",
+    isPopular: false
+  }, {
+    duration: "12 Months",
+    price: "59.99",
+    isPopular: true
+  }, {
+    duration: "24 Months",
+    price: "99.99",
+    isPopular: false
+  }];
+  return <section id="pricing" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -20,21 +31,13 @@ const PricingSection = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
-          {plans.map((plan, index) => (
-            <PricingCard
-              key={index}
-              duration={plan.duration}
-              price={plan.price}
-              isPopular={plan.isPopular}
-              delay={index * 0.1}
-            />
-          ))}
+          {plans.map((plan, index) => <PricingCard key={index} duration={plan.duration} price={plan.price} isPopular={plan.isPopular} delay={index * 0.1} />)}
         </div>
         
         {/* Comparison Section */}
         <div className="mt-20">
           <div className="text-center mb-12">
-            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 lg:text-5xl">
               Why Choose Connect Global IPTV?
             </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -47,8 +50,6 @@ const PricingSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default PricingSection;
