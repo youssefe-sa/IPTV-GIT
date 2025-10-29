@@ -29,7 +29,7 @@ const InstallationTutorial = () => {
   return <section id="installation" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-center">
             Effortlessly Set Up IPTV On Any Device
           </h2>
           <p className="text-lg text-muted-foreground">
