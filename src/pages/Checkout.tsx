@@ -213,7 +213,7 @@ const Checkout = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 pt-24 pb-12">
         <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Billing Form */}
           <div className="lg:col-span-2">
@@ -335,7 +335,7 @@ const Checkout = () => {
 
       {/* Payment Checkout Dialog */}
       <Dialog open={isCheckoutOpen} onOpenChange={setIsCheckoutOpen}>
-        <DialogContent className="w-[95vw] sm:max-w-2xl md:max-w-3xl lg:max-w-4xl h-[85vh] p-0 flex flex-col">
+        <DialogContent className="w-[95vw] sm:max-w-2xl md:max-w-3xl lg:max-w-4xl h-[85vh] p-0 flex flex-col mt-4 sm:mt-8">
           <DialogHeader className="p-6 pb-4">
             <DialogTitle className="text-2xl">Complete Your Payment</DialogTitle>
             <DialogDescription className="text-base">

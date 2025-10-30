@@ -16,7 +16,7 @@ const ThankYou = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
 
-      <main className="flex-1 container mx-auto px-4 py-12 md:py-20">
+      <main className="flex-1 container mx-auto px-4 pt-24 pb-12 md:pt-32 md:pb-20">
         <div className="max-w-3xl mx-auto">
           {/* Success Icon */}
           <div className="flex justify-center mb-8">
@@ -54,10 +54,10 @@ const ThankYou = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    1. Check Your Email
+                    1. Check Your Email & WhatsApp
                   </h3>
                   <p className="text-muted-foreground">
-                    You will receive your login credentials and activation instructions within the next few minutes.
+                    You will receive your login credentials and activation instructions via email and WhatsApp within the next few minutes.
                   </p>
                 </div>
               </div>
@@ -89,8 +89,12 @@ const ThankYou = () => {
                     3. Get Support
                   </h3>
                   <p className="text-muted-foreground">
-                    Our 24/7 customer support team is ready to help you with any questions or setup assistance.
+                    For assistance, contact our customer support:
                   </p>
+                  <ul className="mt-2 space-y-1 text-muted-foreground">
+                    <li>👉 <a href="https://wa.link/b83215" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Direct WhatsApp Link</a></li>
+                    <li>👉 WhatsApp only: <a href="https://wa.me/12106343468" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+1 210 634 3468</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -141,7 +145,7 @@ const ThankYou = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => window.location.href = "mailto:support@example.com"}
+              onClick={() => window.open('https://wa.me/12106343468', '_blank')}
               className="w-full sm:w-auto"
             >
               Contact Support
