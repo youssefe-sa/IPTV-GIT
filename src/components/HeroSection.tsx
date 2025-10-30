@@ -17,21 +17,16 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 py-8 sm:py-12 md:py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up px-2 sm:px-0">
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground mb-3 sm:mb-4 md:mb-6 leading-tight">
-            The International <span className="text-accent relative inline-block px-2 py-1 sm:px-3 bg-accent/20 rounded-lg border-2 border-accent/40 text-xl xs:text-2xl sm:text-3xl md:text-4xl mt-1 inline-block">IPTV</span> Service
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4 md:mb-6 leading-tight md:text-6xl">
+            The International <span className="text-accent relative inline-block px-2 py-1 sm:px-3 bg-accent/20 rounded-lg border-2 border-accent/40 sm:text-3xl mt-1 inline-block md:text-6xl text-3xl">IPTV</span> Service
           </h1>
-          <p className="text-lg xs:text-xl sm:text-2xl md:text-4xl text-accent mb-3 sm:mb-4 md:mb-6 font-bold leading-snug">
+          <p className="sm:text-2xl text-accent mb-3 sm:mb-4 md:mb-6 font-bold leading-snug md:text-5xl text-xl">
             Stream the World in One Click
           </p>
           <p className="text-sm xs:text-base sm:text-lg text-primary-foreground/90 mb-4 sm:mb-6 md:mb-8 leading-relaxed px-1">
             Experience The Best IPTV Service At Competitive Rates! Unlock Access To Over 18,000 Live TV Channels, VODs, EPIC & IPTV Series. Stream From Anywhere On Your All Devices.
           </p>
-          <Button 
-            variant="hero" 
-            size="xl" 
-            onClick={scrollToPricing} 
-            className="animate-glow text-sm xs:text-base sm:text-lg px-4 py-5 sm:px-6 sm:py-6 w-full max-w-xs mx-auto"
-          >
+          <Button variant="hero" size="xl" onClick={scrollToPricing} className="animate-glow text-sm xs:text-base sm:text-lg px-4 py-5 sm:px-6 sm:py-6 w-full max-w-xs mx-auto">
             Subscribe Now
           </Button>
 
