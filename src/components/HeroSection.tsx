@@ -10,7 +10,7 @@ const HeroSection = () => {
       });
     }
   };
-  return <section id="home" className="relative min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[hsl(217,91%,20%)] to-[hsl(217,91%,30%)] pt-16">
+  return <section id="home" className="relative min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[hsl(220,50%,8%)] to-[hsl(260,60%,15%)] pt-16">
       <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{
       backgroundImage: `url(${heroImage})`
     }} />
@@ -18,9 +18,9 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-8 sm:py-12 md:py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up px-2 sm:px-0">
           <h1 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4 md:mb-6 leading-tight md:text-6xl">
-            The International <span className="text-accent relative inline-block px-2 py-1 sm:px-3 bg-accent/20 rounded-lg border-2 border-accent/40 sm:text-3xl mt-1 inline-block md:text-6xl text-3xl">IPTV</span> Service
+            The International <span className="text-primary relative inline-block px-2 py-1 sm:px-3 bg-primary/20 rounded-lg border-2 border-primary/40 sm:text-3xl mt-1 inline-block md:text-6xl text-3xl">IPTV</span> Service
           </h1>
-          <p className="sm:text-2xl text-accent mb-3 sm:mb-4 md:mb-6 font-bold leading-snug md:text-5xl text-xl">
+          <p className="sm:text-2xl text-primary mb-3 sm:mb-4 md:mb-6 font-bold leading-snug md:text-5xl text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
             Stream the World in One Click
           </p>
           <p className="text-sm xs:text-base sm:text-lg text-primary-foreground/90 mb-4 sm:mb-6 md:mb-8 leading-relaxed px-1">

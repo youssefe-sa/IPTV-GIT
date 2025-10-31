@@ -1,4 +1,4 @@
-import { Globe, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -25,32 +25,81 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] bg-[hsl(217,91%,20%)] border-b border-primary/20 w-full">
+    <header className="fixed top-0 left-0 right-0 z-[100] bg-background/95 backdrop-blur-sm border-b border-border/50 w-full shadow-lg">
       <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between relative">
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity z-[110]">
-            <Globe className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
-            <span className="text-lg sm:text-xl font-bold text-primary-foreground">Connect Global</span>
+          <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-all duration-300 z-[110] group">
+            <div className="relative flex-shrink-0">
+              <svg 
+                width="44" 
+                height="44" 
+                viewBox="0 0 44 44" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-10 w-10 sm:h-12 sm:w-12"
+              >
+                {/* Fond avec effet de brillance */}
+                <rect width="44" height="44" rx="12" fill="hsl(210 100% 50%)" />
+                <rect 
+                  width="44" 
+                  height="44" 
+                  rx="12" 
+                  fill="url(#shineOverlay)" 
+                  style={{mixBlendMode: 'overlay'}}
+                />
+                
+                {/* Icône de lecture moderne */}
+                <path 
+                  d="M17 15L30 22L17 29V15Z" 
+                  fill="white"
+                  className="group-hover:scale-110 transition-transform duration-300"
+                />
+                
+                {/* Effet de vague subtil */}
+                <path 
+                  d="M12 22C12 22 14 18 17 18C20 18 22 22 22 22C22 22 24 18 27 18C30 18 32 22 32 22C32 22 30 26 27 26C24 26 22 22 22 22C22 22 20 26 17 26C14 26 12 22 12 22Z" 
+                  fill="white" 
+                  fillOpacity="0.15"
+                  className="group-hover:opacity-100 transition-opacity"
+                />
+                
+                <defs>
+                  <linearGradient id="shineOverlay" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                    <stop offset="0" stopColor="white" stopOpacity="0" />
+                    <stop offset="0.5" stopColor="white" stopOpacity="0.1" />
+                    <stop offset="1" stopColor="white" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg sm:text-xl font-bold text-[hsl(210_100%_50%)] dark:text-[hsl(210_100%_60%)] transition-colors">
+                Connect Global
+              </span>
+              <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                PREMIUM IPTV SERVICE
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            <button onClick={() => scrollToSection("home")} className="text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+            <button onClick={() => scrollToSection("home")} className="text-primary-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-muted/50">
               Home
             </button>
-            <button onClick={() => scrollToSection("services")} className="text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+            <button onClick={() => scrollToSection("services")} className="text-primary-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-muted/50">
               Our Services
             </button>
-            <button onClick={() => scrollToSection("pricing")} className="text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+            <button onClick={() => scrollToSection("pricing")} className="text-primary-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-muted/50">
               Pricing
             </button>
-            <button onClick={() => scrollToSection("installation")} className="text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+            <button onClick={() => scrollToSection("installation")} className="text-primary-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-muted/50">
               Installation Tutorial
             </button>
-            <button onClick={() => scrollToSection("faq")} className="text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+            <button onClick={() => scrollToSection("faq")} className="text-primary-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-muted/50">
               FAQ
             </button>
-            <button onClick={() => scrollToSection("about")} className="text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+            <button onClick={() => scrollToSection("about")} className="text-primary-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-muted/50">
               About
             </button>
           </nav>
@@ -63,7 +112,7 @@ const Header = () => {
             {/* Mobile menu button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 -mr-2 text-primary-foreground hover:text-accent transition-colors z-[110]"
+            className="md:hidden p-2 -mr-2 text-primary-foreground hover:text-primary transition-colors z-[110] rounded-lg hover:bg-muted/50"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -86,7 +135,7 @@ const Header = () => {
         
         {/* Mobile Menu */}
         <div 
-          className={`fixed top-0 right-0 h-full w-full max-w-xs bg-[hsl(217,91%,15%)] z-[100] shadow-2xl transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+          className={`fixed top-0 right-0 h-full w-full max-w-xs bg-card/95 backdrop-blur-sm z-[100] shadow-2xl transform transition-transform duration-300 ease-in-out overflow-y-auto border-l border-border/50 ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -108,7 +157,7 @@ const Header = () => {
                   scrollToSection("home");
                   setIsMenuOpen(false);
                 }} 
-                className="text-base text-primary-foreground/90 hover:text-accent transition-colors text-left py-3 px-4 rounded-lg hover:bg-white/10"
+                className="text-base text-primary-foreground/90 hover:text-primary transition-colors text-left py-3 px-4 rounded-lg hover:bg-muted/50"
               >
                 Home
               </button>
@@ -117,7 +166,7 @@ const Header = () => {
                   scrollToSection("services");
                   setIsMenuOpen(false);
                 }} 
-                className="text-base text-primary-foreground/90 hover:text-accent transition-colors text-left py-3 px-4 rounded-lg hover:bg-white/10"
+                className="text-base text-primary-foreground/90 hover:text-primary transition-colors text-left py-3 px-4 rounded-lg hover:bg-muted/50"
               >
                 Our Services
               </button>
@@ -126,7 +175,7 @@ const Header = () => {
                   scrollToSection("pricing");
                   setIsMenuOpen(false);
                 }} 
-                className="text-base text-primary-foreground/90 hover:text-accent transition-colors text-left py-3 px-4 rounded-lg hover:bg-white/10"
+                className="text-base text-primary-foreground/90 hover:text-primary transition-colors text-left py-3 px-4 rounded-lg hover:bg-muted/50"
               >
                 Pricing
               </button>
@@ -135,7 +184,7 @@ const Header = () => {
                   scrollToSection("installation");
                   setIsMenuOpen(false);
                 }} 
-                className="text-base text-primary-foreground/90 hover:text-accent transition-colors text-left py-3 px-4 rounded-lg hover:bg-white/10"
+                className="text-base text-primary-foreground/90 hover:text-primary transition-colors text-left py-3 px-4 rounded-lg hover:bg-muted/50"
               >
                 Installation Tutorial
               </button>
@@ -144,11 +193,11 @@ const Header = () => {
                   scrollToSection("faq");
                   setIsMenuOpen(false);
                 }} 
-                className="text-base text-primary-foreground/90 hover:text-accent transition-colors text-left py-3 px-4 rounded-lg hover:bg-white/10"
+                className="text-base text-primary-foreground/90 hover:text-primary transition-colors text-left py-3 px-4 rounded-lg hover:bg-muted/50"
               >
                 FAQ
               </button>
-              <div className="pt-4 mt-auto border-t border-white/10 sticky bottom-0 bg-[hsl(217,91%,15%)] pb-4">
+              <div className="pt-4 mt-auto border-t border-border/50 sticky bottom-0 bg-card/95 backdrop-blur-sm pb-4">
                 <Button 
                   variant="hero" 
                   size="lg" 

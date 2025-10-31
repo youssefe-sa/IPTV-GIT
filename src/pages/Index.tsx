@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
 import HeroSection from "@/components/HeroSection";
+import PopularContentAfterHero from "@/components/PopularContentAfterHero";
 import ServicePresentation from "@/components/ServicePresentation";
 import SubscriptionProcess from "@/components/SubscriptionProcess";
 import KeyFeatures from "@/components/KeyFeatures";
@@ -33,6 +34,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SalesNotification />
       <HeroSection />
+      <PopularContentAfterHero />
       <ServicePresentation />
       <SubscriptionProcess />
       <KeyFeatures />
