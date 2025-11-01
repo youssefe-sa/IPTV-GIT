@@ -18,7 +18,7 @@ const TermsConditions = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
             <p>
-              By accessing and using IPTV Connect – Connect Global's services, you accept and agree 
+              By accessing and using Media4Live's services, you accept and agree 
               to be bound by these Terms and Conditions. If you do not agree to these terms, please 
               do not use our services.
             </p>
@@ -27,7 +27,7 @@ const TermsConditions = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">2. Service Description</h2>
             <p>
-              IPTV Connect provides internet protocol television (IPTV) streaming services, including 
+              Media4Live provides internet protocol television (IPTV) streaming services, including 
               access to live TV channels, sports content, movies, series, and video-on-demand (VOD) 
               content. Service features and availability may vary based on your subscription plan.
             </p>
@@ -105,7 +105,7 @@ const TermsConditions = () => {
             <h2 className="text-2xl font-semibold mb-4">8. Intellectual Property</h2>
             <p>
               All content, trademarks, logos, and intellectual property displayed on our service 
-              are owned by IPTV Connect or our content providers. You may not use, reproduce, or 
+              are owned by Media4Live or our content providers. You may not use, reproduce, or 
               distribute any content without explicit permission.
             </p>
           </section>
@@ -131,7 +131,7 @@ const TermsConditions = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">10. Limitation of Liability</h2>
             <p>
-              To the maximum extent permitted by law, IPTV Connect shall not be liable for any 
+              To the maximum extent permitted by law, Media4Live shall not be liable for any 
               indirect, incidental, special, consequential, or punitive damages, including loss 
               of profits, data, or other intangible losses resulting from your use of our service.
             </p>
@@ -149,7 +149,7 @@ const TermsConditions = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">12. Indemnification</h2>
             <p>
-              You agree to indemnify and hold harmless IPTV Connect and its affiliates from any 
+              You agree to indemnify and hold harmless Media4Live and its affiliates from any 
               claims, damages, losses, or expenses arising from your use of the service or violation 
               of these terms.
             </p>

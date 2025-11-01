@@ -92,8 +92,8 @@ const ThankYou = () => {
                     For assistance, contact our customer support:
                   </p>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>👉 <a href="https://wa.link/b83215" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Direct WhatsApp Link</a></li>
-                    <li>👉 WhatsApp only: <a href="https://wa.me/12106343468" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+1 210 634 3468</a></li>
+                    <li>👉 <a href="https://wa.me/212638196267" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Direct WhatsApp Link</a></li>
+                    <li>👉 WhatsApp only: <a href="https://wa.me/212638196267" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+212 6 38 19 62 67</a></li>
                   </ul>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const ThankYou = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => window.open('https://wa.me/12106343468', '_blank')}
+              onClick={() => window.open('https://wa.me/212638196267', '_blank')}
               className="w-full sm:w-auto"
             >
               Contact Support

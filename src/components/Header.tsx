@@ -74,7 +74,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-bold text-[hsl(210_100%_50%)] dark:text-[hsl(210_100%_60%)] transition-colors">
-                Connect Global
+                Media4Live
               </span>
               <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
                 PREMIUM IPTV SERVICE

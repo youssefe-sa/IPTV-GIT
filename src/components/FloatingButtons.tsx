@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 const FloatingButtons = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const phoneNumber = '12106343468';
+  const phoneNumber = '212638196267';
   const message = encodeURIComponent("Hello, I'm interested in your IPTV services. Could you provide me with more information about your offers and subscription plans?");
   
   // Show button when page is scrolled down

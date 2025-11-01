@@ -18,7 +18,7 @@ const Disclaimer = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">1. General Information</h2>
             <p>
-              The information provided by IPTV Connect – Connect Global ("we," "our," or "us") 
+              The information provided by Media4Live ("we," "our," or "us") 
               on our website and through our services is for general informational purposes only. 
               All information is provided in good faith; however, we make no representation or 
               warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, 
@@ -196,7 +196,7 @@ const Disclaimer = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">14. Limitation of Liability</h2>
             <p>
-              Under no circumstances shall IPTV Connect – Connect Global be liable for any direct, 
+              Under no circumstances shall Media4Live be liable for any direct, 
               indirect, incidental, consequential, special, or exemplary damages arising from:
             </p>
             <ul className="list-disc pl-6 space-y-2">
@@ -228,7 +228,7 @@ const Disclaimer = () => {
 
           <section className="bg-muted/50 p-6 rounded-lg mt-8">
             <p className="font-semibold">
-              By using IPTV Connect – Connect Global's services, you acknowledge that you have 
+              By using Media4Live's services, you acknowledge that you have 
               read, understood, and agree to be bound by this disclaimer.
             </p>
           </section>

@@ -15,7 +15,7 @@ const PricingSection = () => {
     isPopular: false
   }, {
     duration: "12 Months",
-    price: "89.99",
+    price: "99.98",
     isPopular: true
   }, {
     duration: "24 Months",
@@ -38,7 +38,7 @@ const PricingSection = () => {
         <div className="mt-20">
           <div className="text-center mb-12">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 lg:text-5xl">
-              Why Choose Connect Global IPTV?
+              Why Choose Media4Live IPTV?
             </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">Compare our service with other providers and see why we're the best choice for you</p>
           </div>

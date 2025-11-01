@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-center md:text-left whitespace-nowrap">
-            © 2025 by IPTV Connect – Connect Global
+            © 2025 by Media4Live IPTV
           </p>
 
           <div className="flex items-center justify-center gap-3 sm:gap-6 flex-wrap">

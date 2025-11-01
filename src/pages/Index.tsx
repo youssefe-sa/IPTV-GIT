@@ -22,7 +22,7 @@ const Index = () => {
     if (!hasVisited) {
       setTimeout(() => {
         toast({
-          title: "Welcome to IPTV Connect! 🎉",
+          title: "Welcome to Media4Live! 🎉",
           description: "Discover 18,000+ live channels and 100,000+ VOD content. Enjoy premium streaming on all your devices!",
           duration: 6000,
         });

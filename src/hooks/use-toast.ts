@@ -3,7 +3,9 @@ import * as React from "react";
 import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
 
 const TOAST_LIMIT = 1;
-const TOAST_REMOVE_DELAY = 1000000;
+// Set a random duration between 30 and 60 seconds (30000ms to 60000ms)
+const getRandomDuration = () => Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000;
+const TOAST_REMOVE_DELAY = getRandomDuration();
 
 type ToasterToast = ToastProps & {
   id: string;

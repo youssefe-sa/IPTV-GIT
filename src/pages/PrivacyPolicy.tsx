@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
             <p>
-              IPTV Connect – Connect Global ("we," "our," or "us") is committed to protecting your privacy. 
+              Media4Live ("we," "our," or "us") is committed to protecting your privacy. 
               This Privacy Policy explains how we collect, use, disclose, and safeguard your information when 
               you use our IPTV streaming service.
             </p>

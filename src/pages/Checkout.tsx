@@ -84,11 +84,11 @@ const Checkout = () => {
   // Whop Checkout Embed: planId selection (prefer query param ?planId=)
   const planIdParam = searchParams.get("planId") || "";
   const planIdMap: Record<string, string> = {
-    "19.99": "plan_cWyyAd1ZmO7Oe",
-    "39.99": "plan_gds8DWoABTvWK",
-    "49.99": "plan_VNq1sYgYJlhX7",
-    "89.99": "plan_rcG2lwNKvbdSB",
-    "149.99": "plan_ESKN3ggSa6kOq",
+    "19.99": "plan_BJXvptRZOTNCJ",
+    "39.99": "plan_MkHtZnwRO9GL4",
+    "49.99": "plan_bCyzm4dBtNkmQ",
+    "99.98": "plan_uVvq0rP1HuONS",
+    "149.99": "plan_I8HqOMhyrLZ3l",
   };
   const planId = planIdParam || planIdMap[price] || "";
 
@@ -99,6 +99,43 @@ const Checkout = () => {
     "All Device Compatibility",
     "24/7 Customer Support",
   ];
+
+  const submitToGoogleSheets = async (data: any) => {
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzsfHWs1ec9nybz4mhXS9_JR3W8Ac2F572EXULrERQ0rLel1BSOi1EhB_22_Xy8FUWliQ/exec";
+    
+    try {
+      // Créer un objet avec les champs dans le bon ordre pour Google Sheets
+      const sheetData = {
+        timestamp: data.timestamp,
+        fullName: data.fullName || '',
+        email: data.email || data.identifier || '',
+        phone: data.phone || '',
+        device: data.device || '',
+        application: data.application || '',
+        macAddress: data.macAddress || '',
+        adultChannels: data.adultChannels || 'Non',
+        plan: data.plan,
+        price: data.price,
+        customerType: data.customerType,
+        status: 'En attente',
+        identifier: data.identifier || ''
+      };
+
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sheetData)
+      });
+      
+      return { success: true };
+    } catch (error) {
+      console.error('Error submitting to Google Sheets:', error);
+      throw error;
+    }
+  };
 
   const handleNewCustomerSubmit = async (data: any) => {
     setIsProcessing(true);
@@ -112,50 +149,44 @@ const Checkout = () => {
       return;
     }
 
-    // Send data to backend
+    const formData = {
+      customerType: 'New Customer',
+      timestamp: new Date().toISOString(),
+      fullName: data.fullName.trim(),
+      email: data.email.trim().toLowerCase(),
+      phone: data.phone.trim(),
+      device: data.device.trim(),
+      application: data.application.trim(),
+      macAddress: data.macAddress ? data.macAddress.trim().toUpperCase() : "",
+      adultChannels: data.adultChannels ? 'Oui' : 'Non',
+      plan: plan,
+      price: price,
+      identifier: ''
+    };
+
     try {
-      const payload = {
-        customerType: "New Customer",
-        timestamp: new Date().toISOString(),
-        fullName: data.fullName.trim(),
-        phone: data.phone.trim(),
-        email: data.email.trim().toLowerCase(),
-        device: data.device.trim(),
-        application: data.application.trim(),
-        macAddress: data.macAddress ? data.macAddress.trim().toUpperCase() : "",
-        adultChannels: data.adultChannels,
-        plan: plan,
-        price: price,
-      };
-
-      const { data: result, error } = await supabase.functions.invoke('submit-order', {
-        body: payload,
-      });
-
-      if (error) {
-        throw error;
-      }
+      // Submit to Google Sheets
+      await submitToGoogleSheets(formData);
       
       toast({
         title: "Success!",
         description: "Your information has been saved. Redirecting to payment...",
       });
 
-      // Attendre un peu avant d'ouvrir le checkout
+      // Wait a bit before opening checkout
       await new Promise(resolve => setTimeout(resolve, 300));
+      
+      setIsCheckoutOpen(true);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Unknown error";
+      console.error('Error submitting form:', error);
       toast({
         title: "Error",
         description: "An error occurred. Please try again or contact support.",
         variant: "destructive",
       });
+    } finally {
       setIsProcessing(false);
-      return;
     }
-
-    setIsCheckoutOpen(true);
-    setIsProcessing(false);
   };
 
   const handleRenewalSubmit = async (data: any) => {
@@ -170,44 +201,38 @@ const Checkout = () => {
       return;
     }
 
-    // Send data to backend
+    const formData = {
+      customerType: 'Renewal',
+      timestamp: new Date().toISOString(),
+      fullName: '',
+      identifier: data.identifier.trim().toLowerCase(),
+      plan: plan,
+      price: price
+    };
+
     try {
-      const payload = {
-        customerType: "Renewal",
-        timestamp: new Date().toISOString(),
-        identifier: data.identifier.trim().toLowerCase(),
-        plan: plan,
-        price: price,
-      };
-
-      const { data: result, error } = await supabase.functions.invoke('submit-order', {
-        body: payload,
-      });
-
-      if (error) {
-        throw error;
-      }
+      // Submit to Google Sheets
+      await submitToGoogleSheets(formData);
       
       toast({
         title: "Success!",
         description: "Your renewal request has been saved. Redirecting to payment...",
       });
 
-      // Attendre un peu avant d'ouvrir le checkout
+      // Wait a bit before opening checkout
       await new Promise(resolve => setTimeout(resolve, 300));
+      
+      setIsCheckoutOpen(true);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Unknown error";
+      console.error('Error submitting renewal:', error);
       toast({
         title: "Error",
         description: "An error occurred. Please try again or contact support.",
         variant: "destructive",
       });
+    } finally {
       setIsProcessing(false);
-      return;
     }
-
-    setIsCheckoutOpen(true);
-    setIsProcessing(false);
   };
 
 

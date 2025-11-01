@@ -62,7 +62,7 @@ const ServicePresentation = () => {
             />
             <div className="absolute top-3 sm:top-4 md:top-6 left-3 sm:left-6 flex items-center gap-2 sm:gap-3 bg-background/95 backdrop-blur-sm px-3 sm:px-6 py-2 sm:py-3 rounded-lg shadow-xl border border-primary/20">
               <Globe className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-accent" />
-              <span className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">Connect Global</span>
+              <span className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">Media4Live</span>
             </div>
           </div>
         </div>
