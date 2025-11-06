@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    { "source": "/channels", "destination": "/index.html" },
+    { "source": "/channels/(.*)", "destination": "/index.html" },
+    { "source": "/checkout", "destination": "/index.html" },
+    { "source": "/thank-you", "destination": "/index.html" },
+    { "source": "/privacy-policy", "destination": "/index.html" },
+    { "source": "/terms-conditions", "destination": "/index.html" },
+    { "source": "/disclaimer", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

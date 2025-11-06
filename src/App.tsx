@@ -11,6 +11,7 @@ import TermsConditions from "./pages/TermsConditions";
 import Disclaimer from "./pages/Disclaimer";
 import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
+import ChannelsList from "./pages/ChannelsList";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,11 @@ const App = () => (
           <Route path="/thank-you" element={
             <Layout>
               <ThankYou />
+            </Layout>
+          } />
+          <Route path="/channels" element={
+            <Layout>
+              <ChannelsList />
             </Layout>
           } />
           <Route path="/privacy-policy" element={
