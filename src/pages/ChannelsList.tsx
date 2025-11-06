@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 // Types
 type Channel = {
@@ -188,15 +188,19 @@ const splitIntoColumns = (channels: Channel[], columns: number): Channel[][] => 
 
 const ChannelsList: React.FC = () => {
   // Flatten all channels from all groups
-  const allChannels = channelGroups.flatMap(group => 
-    group.channels.map(channel => ({
-      ...channel,
-      groupName: group.name
-    }))
-  );
+  const allChannels = React.useMemo(() => {
+    return channelGroups.flatMap(group => 
+      group.channels.map(channel => ({
+        ...channel,
+        groupName: group.name
+      }))
+    );
+  }, []);
 
   // Split into 4 columns
-  const columns = splitIntoColumns(allChannels, 4);
+  const columns = React.useMemo(() => {
+    return splitIntoColumns(allChannels, 4);
+  }, [allChannels]);
 
   return (
     <div className="min-h-screen bg-gray-50 pt-32 pb-8 px-4 sm:px-6 lg:px-8">
