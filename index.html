@@ -16,6 +16,40 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17697651273"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Configuration du tag de conversion principal
+      gtag('config', 'AW-17697651273');
+
+      // Détection de la page de remerciement pour suivre la conversion
+      if (window.location.pathname === '/thank-you') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17697651273/UNIQUE_CONVERSION_ID',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+        
+        // Événement de conversion supplémentaire
+        gtag('event', 'purchase', {
+          'transaction_id': 'TRANSACTION_ID_' + Math.floor(Math.random() * 1000000),
+          'value': 19.99,
+          'currency': 'USD',
+          'items': [{
+            'id': 'IPTV_SUBSCRIPTION',
+            'name': 'Abonnement IPTV',
+            'category': 'IPTV',
+            'price': 19.99,
+            'quantity': 1
+          }]
+        });
+      }
+    </script>
   </head>
 
   <body>

@@ -11,9 +11,18 @@ export default defineConfig(({ mode }) => ({
     // Configuration pour le routage côté client
     strictPort: true,
     open: true,
+    historyApiFallback: true,
   },
   // Configuration pour le routage côté client
   base: '/',
+  plugins: [
+    react(),
+    componentTagger({
+      framework: 'react',
+      originalDir: 'src/components',
+      outputDir: 'src/components',
+    }),
+  ],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
