@@ -102,6 +102,9 @@ const Header = () => {
             <button onClick={() => scrollToSection("about")} className="text-primary-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-muted/50">
               About
             </button>
+            <Link to="/channels" className="text-primary-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-muted/50">
+              Channels List
+            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -197,6 +200,13 @@ const Header = () => {
               >
                 FAQ
               </button>
+              <Link 
+                to="/channels"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-base text-primary-foreground/90 hover:text-primary transition-colors text-left py-3 px-4 rounded-lg hover:bg-muted/50"
+              >
+                Channels List
+              </Link>
               <div className="pt-4 mt-auto border-t border-border/50 sticky bottom-0 bg-card/95 backdrop-blur-sm pb-4">
                 <Button 
                   variant="hero" 
